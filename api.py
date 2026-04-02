@@ -20,6 +20,8 @@ tenant =os.getenv('tenant')
 database=os.getenv('database')
 chroma_api_key= os.getenv('chroma_api_key')
 
+print(HUGGINGFACEHUB_ACCESS_TOKEN)
+
 
 embeddings = HuggingFaceEndpointEmbeddings(
     model="sentence-transformers/all-mpnet-base-v2",

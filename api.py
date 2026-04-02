@@ -37,6 +37,10 @@ parser = StrOutputParser()
 def format_docs(retrieved_docs):
         return "\n".join(doc.page_content for doc in retrieved_docs)
 
+@app.get('/')
+def root():
+    return {"message":"API working properly...."}
+
 
 @app.post('/ingest')
 def ingest(video_id):

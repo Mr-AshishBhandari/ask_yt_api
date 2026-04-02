@@ -7,6 +7,7 @@ from langchain_chroma import Chroma
 
 from fastapi import FastAPI
 from youtube_transcript_api import YouTubeTranscriptApi
+import uvicorn
 
 from dotenv import load_dotenv
 import os
@@ -107,3 +108,8 @@ def ask(query,video_id):
     result = final_chain.invoke(query)
 
     return {"result":result}
+
+
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 10000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
